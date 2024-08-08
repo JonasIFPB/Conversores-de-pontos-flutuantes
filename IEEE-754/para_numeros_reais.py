@@ -83,5 +83,27 @@ if tipo == '1':
 
 
 
-numeroConvertido = inteiroBinario + ',' + decimalBinario[:ultimoi]
+numeroConvertidoNFormatado = inteiroBinario + ',' + decimalBinario[:ultimoi]
+numeroConvertido = inteiroBinario + decimalBinario[:ultimoi]
+
+
+if inteiro > 0:
+    numeroConvertido = numeroConvertido[0] + ',' + numeroConvertido[1::]
+
+
+else:
+    for i in range(len(numeroConvertido)):
+        if numeroConvertido[i] == '1':
+            numeroConvertido = numeroConvertido[i] + ',' + numeroConvertido[i+1::]
+            break
+
+#achando o valor da notação
+if numeroConvertidoNFormatado.find(',') < numeroConvertidoNFormatado.find('1'):
+    expoente = (numeroConvertidoNFormatado.find(',') - numeroConvertidoNFormatado.find('1')) 
+
+else:
+    expoente = (numeroConvertidoNFormatado.find(',') - numeroConvertidoNFormatado.find('1')) - 1
+
+print(numeroConvertidoNFormatado)
+print(expoente)
 print(numeroConvertido)
