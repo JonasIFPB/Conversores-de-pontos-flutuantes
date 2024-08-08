@@ -27,7 +27,7 @@ if tipo == '1':
     decimal = "0." + decimal
     decimal = float(decimal)
 
-    #convertendo a parte inteira
+    ###########convertendo a parte inteira
     inteiroBinario = ""
     if inteiro == 1:
         inteiroBinario += '1'
@@ -50,8 +50,7 @@ if tipo == '1':
 
         inteiroBinario = inteiroBinario[::-1]
 
-    print(inteiroBinario)
-    #convertendo a parte decimal
+    ############convertendo a parte decimal
 
     decimalBinario = ""
 
@@ -65,7 +64,7 @@ if tipo == '1':
 
     mult = parte_fracionaria_decimal * 2 
     
-    for i in range(7):
+    for i in range(12):
         parte_inteira_decimal = int(mult)
 
         parte_fracionaria_decimal = (mult) - parte_inteira_decimal
@@ -73,23 +72,23 @@ if tipo == '1':
         decimalBinario += str(parte_inteira_decimal)
 
         mult = parte_fracionaria_decimal * 2
-
-    #formatando a parte decimal 
-    decimalLista = []
-    for i in decimalBinario:
-        decimalLista.append(int(decimalBinario[int(i)]))
-
-    ultimoi = decimalLista[0] 
-
-    for i in range(len(decimalLista)):
-        if decimalLista[i] == 1:
-            ultimoi = i + 1
-
-
+    print(decimalBinario)
+    ##formatando a parte decimal 
+    #decimalLista = []
+    #for i in decimalBinario:
+    #    decimalLista.append(int(decimalBinario[int(i)]))
+    #
+    #ultimoi = decimalLista[0] 
+    #
+    #for i in range(len(decimalLista)):
+    #    if decimalLista[i] == 1:
+    #        ultimoi = i + 1
 
 
-numeroConvertidoNFormatado = inteiroBinario + ',' + decimalBinario[:ultimoi]
-numeroConvertido = inteiroBinario + decimalBinario[:ultimoi]
+
+
+numeroConvertidoNFormatado = inteiroBinario + ',' + decimalBinario
+numeroConvertido = inteiroBinario + decimalBinario
 
 
 if inteiro > 0:
@@ -109,6 +108,8 @@ if numeroConvertidoNFormatado.find(',') < numeroConvertidoNFormatado.find('1'):
 else:
     expoente = (numeroConvertidoNFormatado.find(',') - numeroConvertidoNFormatado.find('1')) - 1
 
+mantissa = numeroConvertido[2::]
 print(numeroConvertidoNFormatado)
 print(expoente)
 print(numeroConvertido)
+print(mantissa)
