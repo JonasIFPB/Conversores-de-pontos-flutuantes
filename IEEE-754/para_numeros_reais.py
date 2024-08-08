@@ -29,23 +29,28 @@ if tipo == '1':
 
     #convertendo a parte inteira
     inteiroBinario = ""
-
-    restoConvertendo = inteiro % 2
-    quocienteConvertendo = inteiro // 2
-
-    inteiroBinario += str(restoConvertendo)
-
-    while True:
-
-        restoConvertendo = quocienteConvertendo % 2
-
-        quocienteConvertendo = quocienteConvertendo // 2
+    if inteiro == 1:
+        inteiroBinario += '1'
+    else:
+        restoConvertendo = inteiro % 2
+        quocienteConvertendo = inteiro // 2
 
         inteiroBinario += str(restoConvertendo)
 
-        if quocienteConvertendo == 0:
-            break
-    
+        while True:
+            if quocienteConvertendo == 1:
+                break
+            restoConvertendo = quocienteConvertendo % 2
+
+            quocienteConvertendo = quocienteConvertendo // 2
+
+            inteiroBinario += str(restoConvertendo)
+
+        inteiroBinario += str(quocienteConvertendo)  
+
+        inteiroBinario = inteiroBinario[::-1]
+
+    print(inteiroBinario)
     #convertendo a parte decimal
 
     decimalBinario = ""
