@@ -131,10 +131,7 @@ if tipo == '1':
             inteiroExpoente += str(restoExpoente)
         inteiroExpoente += str(quocienteExpoente)  
         inteiroExpoente = inteiroExpoente[::-1]
-    print(len(inteiroExpoente))
-    print(inteiroExpoente)
-    print(len(mantissa))
-    print(mantissa)
+  
 
     if len(inteiroExpoente) < 8:
         for i in range(8 - len(inteiroExpoente)):
