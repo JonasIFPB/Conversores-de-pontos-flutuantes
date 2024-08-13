@@ -210,7 +210,7 @@ if tipo == '2':
 
     if len(inteiroExpoente) < 8:
         for i in range(8 - len(inteiroExpoente)):
-            inteiroExpoente += '0'
+            inteiroExpoente = '0' + inteiroExpoente
     
    
     if len(mantissa) < 23:
