@@ -29,8 +29,11 @@ if tipo == '1':
 
     ###########convertendo a parte inteira
     inteiroBinario = ""
+    
     if inteiro == 1:
         inteiroBinario += '1'
+    elif inteiro == 0:
+        inteiroBinario = '0'
     else:
         restoConvertendo = inteiro % 2
         quocienteConvertendo = inteiro // 2
@@ -86,21 +89,22 @@ if tipo == '1':
 
 
 
-
+    
     numeroConvertidoNFormatado = inteiroBinario + ',' + decimalBinario
     numeroConvertido = inteiroBinario + decimalBinario
-
+    
+    
 
     if inteiro > 0:
         numeroConvertido = numeroConvertido[0] + ',' + numeroConvertido[1::]
-
+    
 
     else:
         for i in range(len(numeroConvertido)):
             if numeroConvertido[i] == '1':
                 numeroConvertido = numeroConvertido[i] + ',' + numeroConvertido[i+1::]
                 break
-
+    
     #achando o valor da notação
     if numeroConvertidoNFormatado.find(',') < numeroConvertidoNFormatado.find('1'):
         expoente = (numeroConvertidoNFormatado.find(',') - numeroConvertidoNFormatado.find('1')) 
@@ -135,7 +139,7 @@ if tipo == '1':
 
     if len(inteiroExpoente) < 8:
         for i in range(8 - len(inteiroExpoente)):
-            inteiroExpoente += '0'
+            inteiroExpoente = '0' + inteiroExpoente
     
    
     if len(mantissa) < 23:
