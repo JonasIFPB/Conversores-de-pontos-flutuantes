@@ -152,6 +152,68 @@ if tipo == '1':
     resultado = sinal + inteiroExpoente + mantissa
 
 
+if tipo == '2':
+    entrada = input(f'''
+-----------------------------------------------------------------------------------------------------------------            
+            infome os dados de entrada:
+                  padrão :
+
+                +2x+1 1,xxxxxxxxx
+
+                +2x-1 1,xxxxxxxxx
+
+
+                -2x+1 1,xxxxxxxxx
+
+                -2x-1 1,xxxxxxxxx
+-----------------------------------------------------------------------------------------------------------------
+\n''')
+
+    sinal = entrada[0]
+
+    if sinal == '+':
+        sinal = "0"
+    else:
+        sinal = "1" 
+    
+    #tratando os dados
+    
+    expoente, mantissa = entrada[3:].split()
+    mantissa = mantissa[2:]
+
+    #exposente mais 127
+
+    expoente = int(expoente) + 127
+
+    #convertendo para binário com 8 bits
+
+    inteiroExpoente = ""
+    if expoente == 1:
+        inteiroExpoente += '1'
+    else:
+        restoExpoente = expoente % 2
+        quocienteExpoente = expoente // 2
+        inteiroExpoente += str(restoExpoente)
+        while True:
+            if quocienteExpoente == 1:
+                break
+            restoExpoente = quocienteExpoente % 2
+            quocienteExpoente = quocienteExpoente // 2
+            inteiroExpoente += str(restoExpoente)
+        inteiroExpoente += str(quocienteExpoente)  
+        inteiroExpoente = inteiroExpoente[::-1]
+  
+
+    if len(inteiroExpoente) < 8:
+        for i in range(8 - len(inteiroExpoente)):
+            inteiroExpoente += '0'
+    
+   
+    if len(mantissa) < 23:
+        for i in range(23 - len(mantissa)):
+            mantissa += '0'
+
+    resultado = sinal + inteiroExpoente + mantissa  
 
 
 
